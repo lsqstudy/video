@@ -56,9 +56,8 @@ spring:
   #mongodb相关配置
   data:
     mongodb:
-#      uri: mongodb://root:lsqstudy@lsqstudy.top:27017/video?authSource=admin #需要验证,远程连接
 #        uri: mongodb://localhost:27017/video #不需要验证，本地连接
-        uri: mongodb://root:lsqstudy@localhost:27017/video?authSource=admin #需要验证,本地连接
+
 
 
   #配置thymeleaf
