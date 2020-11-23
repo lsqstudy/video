@@ -16,7 +16,7 @@ import com.alibaba.fastjson.JSON;
  *
  */
 @RestController
-@RequestMapping("/system/administratorLoginLog")
+@RequestMapping("system/administratorLoginLog")
 public class AdministratorLoginLogController {
 
 	@Autowired

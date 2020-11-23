@@ -26,7 +26,7 @@ import com.alibaba.fastjson.JSON;
  *
  */
 @RestController
-@RequestMapping("/system/news")
+@RequestMapping("system/news")
 public class NewsController {
 
 	@Autowired

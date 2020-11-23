@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping("/bussiness/variety")
+@RequestMapping("bussiness/variety")
 public class VarietyController {
 
 	@Autowired

@@ -17,7 +17,7 @@ import com.alibaba.fastjson.JSON;
  * 
  */
 @RestController
-@RequestMapping("/system/role")
+@RequestMapping("system/role")
 public class RoleController {
 
 	@Autowired

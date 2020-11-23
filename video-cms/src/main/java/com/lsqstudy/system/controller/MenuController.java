@@ -26,7 +26,7 @@ import com.alibaba.fastjson.JSON;
  * @RestController 表示返回json字符串，不能返回视图
  */
 @RestController  
-@RequestMapping("/system/menu")
+@RequestMapping("system/menu")
 public class MenuController {
 
 	@Autowired

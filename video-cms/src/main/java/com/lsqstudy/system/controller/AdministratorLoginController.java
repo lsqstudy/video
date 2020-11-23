@@ -38,7 +38,7 @@ import cn.hutool.captcha.LineCaptcha;
 import cn.hutool.core.util.IdUtil;
 
 @Controller
-@RequestMapping("/system")
+@RequestMapping("system")
 public class AdministratorLoginController {
 	@Autowired
 	private IAdministratorService administratorService;
@@ -54,7 +54,7 @@ public class AdministratorLoginController {
 		if (blogResult.getStatus() == 200) {// 如果从token中获取到管理员信息
 			mv.setViewName("redirect:index.html");
 		} else {
-			mv.setViewName("/system/main/login");
+			mv.setViewName("system/main/login");
 		}
 
 		return mv;
@@ -99,11 +99,11 @@ public class AdministratorLoginController {
 			} catch (AuthenticationException e) {// 登录失败，返回登录页面
 				e.printStackTrace();
 				mv.addObject("result", Constast.USER_LOGIN_ERROR_MSG);
-				mv.setViewName("/system/main/login");
+				mv.setViewName("system/main/login");
 			}
 		} else {// 验证码错误，登录失败，返回登录页面
 			mv.addObject("result", Constast.USER_LOGIN_CODE_ERROR_MSG);
-			mv.setViewName("/system/main/login");
+			mv.setViewName("system/main/login");
 		}
 
 		return mv;
@@ -120,9 +120,9 @@ public class AdministratorLoginController {
 
 		if (null != administrator) {
 			mv.addObject("administrator", administrator);
-			mv.setViewName("/system/main/index");
+			mv.setViewName("system/main/index");
 		} else {
-			mv.setViewName("/system/main/login");
+			mv.setViewName("system/main/login");
 		}
 
 		return mv;
@@ -135,7 +135,7 @@ public class AdministratorLoginController {
 
 		DataResult dataResult = administratorService.deleteByToken(request, response);
 		if (dataResult.getStatus() == 200) {
-			mv.setViewName("/system/main/login");
+			mv.setViewName("system/main/login");
 		}
 
 		return mv;

@@ -13,7 +13,7 @@ import com.alibaba.fastjson.JSON;
 
 //上传图片处理
 @Controller
-@RequestMapping("/file")
+@RequestMapping("file")
 public class PictureController {
 
 	@Autowired

@@ -17,7 +17,7 @@ import com.alibaba.fastjson.JSON;
  * 统计分析
  *
  */
-@RequestMapping("/stat")
+@RequestMapping("stat")
 @Controller
 public class StatController {
 	
@@ -33,7 +33,7 @@ public class StatController {
 	@RequestMapping("/toOnlineStat.html")
 	public String toOnlineStat() {
 		
-		return "/stat/onlineInfoStat";
+		return "stat/onlineInfoStat";
 	}
 	
 	/**

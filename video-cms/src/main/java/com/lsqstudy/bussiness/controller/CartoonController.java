@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping("/bussiness/cartoon")
+@RequestMapping("bussiness/cartoon")
 public class CartoonController {
 
 	@Autowired

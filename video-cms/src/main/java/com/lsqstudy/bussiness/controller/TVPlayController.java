@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping("/bussiness/tvPlay")
+@RequestMapping("bussiness/tvPlay")
 public class TVPlayController {
 
 	@Autowired

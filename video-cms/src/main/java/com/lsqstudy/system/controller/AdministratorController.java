@@ -21,7 +21,7 @@ import com.alibaba.fastjson.JSON;
 import java.util.List;
 
 @RestController
-@RequestMapping("/system/administrator")
+@RequestMapping("system/administrator")
 public class AdministratorController {
 
 	@Autowired

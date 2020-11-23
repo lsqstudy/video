@@ -24,7 +24,7 @@ import java.util.Date;
  *
  */
 @RestController
-@RequestMapping("/bussiness/movice")
+@RequestMapping("bussiness/movice")
 public class MoviceController {
 
 	@Autowired

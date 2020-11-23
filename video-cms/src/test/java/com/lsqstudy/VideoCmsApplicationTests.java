@@ -133,13 +133,13 @@ class VideoCmsApplicationTests {
 		role.getMenus().add(menu);
 
 		//保存操作
-		roleService.addRole(role);
-		administratorService.addAdministrator(administrator);
-		menuService.addMenu(menu);
-		permissionService.addPermission(queryPermission);
-		permissionService.addPermission(addPermission);
-		permissionService.addPermission(updatePermission);
-		permissionService.addPermission(deletePermission);
+		// roleService.addRole(role);
+		// administratorService.addAdministrator(administrator);
+		// menuService.addMenu(menu);
+		// permissionService.addPermission(queryPermission);
+		// permissionService.addPermission(addPermission);
+		// permissionService.addPermission(updatePermission);
+		// permissionService.addPermission(deletePermission);
 
 
 	}

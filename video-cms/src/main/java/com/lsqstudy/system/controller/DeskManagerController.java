@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  */
 @Controller
-@RequestMapping("/system/desk")
+@RequestMapping("system/desk")
 public class DeskManagerController {
 	@Autowired
 	private IAdministratorService administratorService;
@@ -32,7 +32,7 @@ public class DeskManagerController {
 		Administrator administrator = (Administrator) blogResult.getData();
 		model.addAttribute("administrator", administrator);
 		
-		return "/system/main/deskManager";
+		return "system/main/deskManager";
 	}
 
 }

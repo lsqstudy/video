@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @Controller
-@RequestMapping("/bussiness")
+@RequestMapping("bussiness")
 public class BusController {
     /**
      * 跳转动漫管理
@@ -18,7 +18,7 @@ public class BusController {
     @RequestMapping("/toCartoonManager.html")
     public String toCartoonManager() {
 
-        return "/bussiness/cartoon/cartoonManager";
+        return "bussiness/cartoon/cartoonManager";
     }
     /**
      * 跳转动漫管理
@@ -26,7 +26,7 @@ public class BusController {
     @RequestMapping("/toMoviceManager.html")
     public String toMoviceManager() {
 
-        return "/bussiness/movice/moviceManager";
+        return "bussiness/movice/moviceManager";
     }
     /**
      * 跳转动漫管理
@@ -34,7 +34,7 @@ public class BusController {
     @RequestMapping("/toTVPlayManager.html")
     public String toTVPlayManager() {
 
-        return "/bussiness/tvPlay/tvPlayManager";
+        return "bussiness/tvPlay/tvPlayManager";
     }
     /**
      * 跳转动漫管理
@@ -42,7 +42,7 @@ public class BusController {
     @RequestMapping("/toVarietyManager.html")
     public String toVarietyManager() {
 
-        return "/bussiness/variety/varietyManager";
+        return "bussiness/variety/varietyManager";
     }
 
 }

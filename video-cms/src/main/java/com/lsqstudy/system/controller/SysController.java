@@ -21,7 +21,7 @@ import java.util.Set;
  *
  */
 @Controller
-@RequestMapping("/system")
+@RequestMapping("system")
 public class SysController {
 	@Autowired
 	private IAdministratorService administratorService;
@@ -32,7 +32,7 @@ public class SysController {
 	@RequestMapping("/toMenuManager.html")
 	public String toMenuManager() {
 
-		return "/system/menu/menuManager";
+		return "system/menu/menuManager";
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class SysController {
 	@RequestMapping("/toMenuLeft.html")
 	public String toMenuLeft() {
 
-		return "/system/menu/menuLeft";
+		return "system/menu/menuLeft";
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class SysController {
 	@RequestMapping("/toMenuRight.html")
 	public String toMenuRight() {
 
-		return "/system/menu/menuRight";
+		return "system/menu/menuRight";
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class SysController {
 	@RequestMapping("/toRoleManager.html")
 	public String toRoleManager() {
 
-		return "/system/role/roleManager";
+		return "system/role/roleManager";
 	}
 	/**
 	 * 跳转权限管理页面
@@ -67,7 +67,7 @@ public class SysController {
 	@RequestMapping("/toPermissionManager.html")
 	public String toPermissionManager() {
 		
-		return "/system/permission/permissionManager";
+		return "system/permission/permissionManager";
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class SysController {
 	@RequestMapping("/toAdministratorManager.html")
 	public String toAdministratorManager() {
 
-		return "/system/administrator/administratorManager";
+		return "system/administrator/administratorManager";
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class SysController {
 	 */
 	@RequestMapping("/toadministratorLoginLogManager.html")
 	public String toAdministratorLogManager() {
-		return "/system/administratorLoginLog/administratorLoginLogManager";
+		return "system/administratorLoginLog/administratorLoginLogManager";
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class SysController {
 	@RequestMapping("/toNewsManager.html")
 	public String toNewsManager() {
 
-		return "/system/news/newsManager";
+		return "system/news/newsManager";
 	}
 	/**
 	 * 跳转个人资料页面
@@ -115,7 +115,7 @@ public class SysController {
 			String json = JSON.toJSONString(administrator);
 			mv.addObject("administrator", json);
 		}
-		mv.setViewName("/system/administrator/administratorInfo");
+		mv.setViewName("system/administrator/administratorInfo");
 		
 		return mv;
 	}
@@ -133,7 +133,7 @@ public class SysController {
 			mv.addObject("administrator", administrator);
 		}
 		
-		mv.setViewName("/system/administrator/changePwd");
+		mv.setViewName("system/administrator/changePwd");
 		
 		return mv;
 	}
@@ -144,6 +144,6 @@ public class SysController {
 	@RequestMapping("/404.html")
 	public String errorPage(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "/system/errorPage/404";
+		return "system/errorPage/404";
 	}
 }
