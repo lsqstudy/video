@@ -13,7 +13,7 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://localhost:3306/video?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
       username: root
-      password: lsqstudy
+      password: 123456
       max-active: 20
       max-wait: 5000
       initial-size: 1
@@ -66,8 +66,6 @@ spring:
   data:
     mongodb:
 #      uri: mongodb://localhost:27017/video #不需要验证，本地连接
-        uri: mongodb://root:lsqstudy@localhost:27017/video?authSource=admin #需要验证,本地连接
-  #      uri: mongodb://root:lsqstudy@lsqstudy.top:27017/video?authSource=admin #需要验证,远程连接
 
 
   #配置thymeleaf
