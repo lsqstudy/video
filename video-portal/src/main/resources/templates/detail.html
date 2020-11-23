@@ -1,0 +1,511 @@
+
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title > 卖乘鸭 </title>
+
+	<!-- Template CSS -->
+	<link rel="stylesheet" th:href="@{/css/style-starter.css}">
+	<!-- Template CSS -->
+	<link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+
+
+	<link href="http://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
+		rel="stylesheet">
+
+
+	<style type="text/css">
+		.video-button{
+			border: none;
+			padding: 5px 10px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 14px;
+			border: 1.5px solid;
+			margin-left: 2px;
+			margin-right: 2px;
+			margin-top: 2px;
+			margin-bottom: 2px;
+		}
+		.video-button:hover{
+			border: 1.5px solid #df0e62;
+            font-weight: bold;
+		}
+
+		.show-button{
+			border: none;
+			padding: 5px 10px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 14px;
+			border: 1.5px solid;
+			margin-left: 2px;
+			margin-right: 2px;
+			margin-top: 2px;
+			margin-bottom: 2px;
+		}
+		.show-button:hover{
+			border: 1.5px solid #00aced;
+			font-weight: bold;
+			color: #00aced;
+		}
+		.dowload-button{
+			border: none;
+			padding: 5px 10px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 14px;
+			border: 1.5px solid;
+			margin-left: 2px;
+			margin-right: 2px;
+			margin-top: 2px;
+			margin-bottom: 2px;
+		}
+		.dowload-button:hover{
+			border: 1.5px solid #00aced;
+			font-weight: bold;
+		}
+		.download-name-class{
+			word-wrap:break-word;
+			word-break:break-all;
+		}
+
+		.my-search{
+			color: gray;
+		}
+		.my-search:hover{
+			color: #df0e62;
+		}
+
+	</style>
+
+</head>
+
+<body>
+	<!--引入头部-->
+	<div th:replace="common/header::#web_top(hotSearch=${hotSearch},activeUri='category'+${videoVo.category})"></div>
+
+	<!--/您现在的位置 -->
+	<div class="w3l-breadcrumbs">
+		<nav id="breadcrumbs" class="breadcrumbs">
+			<div class="container page-wrapper">
+				您现在的位置：<a th:href="@{/}">首页</a> »
+				<a th:if="${videoVo.category==1}" th:href="@{/category(category=1)}">动漫</a>
+				<a th:if="${videoVo.category==2}" th:href="@{/category(category=2)}">电影</a>
+				<a th:if="${videoVo.category==3}" th:href="@{/category(category=3)}">电视剧</a>
+				<a th:if="${videoVo.category==4}" th:href="@{/category(category=4)}">综艺</a>
+				»
+				<a th:href="@{/detail(category=${videoVo.category},id=${videoVo.id})}"><span th:text="${video.title}"></span></a>
+			</div>
+		</nav>
+	</div>
+	<!--//您现在的位置-->
+
+	<!--视频详情信息-->
+	<div class="w3l-ab-grids py-5"  style="margin-top: -40px">
+		<div class="container py-lg-4">
+			<div class="row ab-grids-sec align-items-center">
+				<table  width="100%" >
+					<tr>
+						<td  width="150px" >
+								<img style="margin-left: 10px; max-width: 150px;height: 210px" class="thumbnail" th:src="${video.thumbnail}" alt="">
+						</td>
+						<td valign="top" >
+							<table >
+								<tr >
+									<td ><h3 class="hny-title" style="padding-left: 10px;margin-bottom: 10px;font-size: 18px"><span  th:href="@{'/search?content='+${video.title}}" th:text="${video.title}"></span></h3></td>
+								</tr>
+								<tr style="line-height: 25px">
+									<td valign="top" style="padding-left: 10px;margin-bottom: 20px">别名：<span th:text="${video.alex}"></span></td>
+								</tr>
+								<tr style="line-height: 25px">
+									<td valign="top" style="padding-left: 10px;">主演：<a class="my-search" th:each="item,itemStat:${video.actor}"
+										th:if="${itemStat.count < 4}" th:href="@{'/search?content='+${item}}" th:text="${item}+'&nbsp;&nbsp' "></a></td>
+								</tr>
+								<tr style="line-height: 25px">
+									<td valign="top" style="padding-left: 10px;">类型：<a  class="my-search" th:each="item,itemStat:${video.type}"
+										th:if="${itemStat.count < 4}" th:href="@{'/search?content='+${item}}" th:text="${item}+'&nbsp;&nbsp' "></a></td>
+								</tr>
+								<tr style="line-height: 25px">
+									<td valign="top" style="padding-left: 10px;margin-bottom: 10px">年份：<span th:text="${video.year}"></span></td>
+								</tr>
+								<tr style="line-height: 25px">
+									<td valign="top" style="padding-left: 10px;margin-bottom: 10px">状态：<span th:text="${video.status}"></span></td>
+								</tr>
+								<tr style="line-height: 25px">
+									<td valign="top" style="padding-left: 10px;margin-bottom: 10px">更新时间：<span th:text="${#dates.format(video.updateTime,'yyyy-MM-dd')}"></span></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+				<div id="info-span-show" style="margin-left: 15px; margin-right:15px;margin-top: 10px"><span style="font-weight: bold">简介：</span><span  th:text="${#strings.abbreviate(video.info,40)}"></span><a id='info-show' style='color:#df0e62;'>展开</a></div>
+				<div  id="info-span-hide"  style="margin-left: 15px;margin-right:15px;margin-top: 10px;display: none"><span style="font-weight: bold">简介：</span><span th:text="${video.info}"></span><a id='info-hide' style='color:#df0e62;'>收起</a></div>
+			</div>
+			<hr>
+		</div>
+	</div>
+
+
+
+	<!--在线播放地址-->
+	<div class="address-group">
+	<section class="w3l-grids video-address" th:each="address:${video.playAddress}" >
+		<div class="grids-main py-4">
+			<div class="container py-lg-4">
+
+				<span style="color: #df0e62;font-size: 16px;font-weight: bold" class="play-address">播放源<span th:text="${video.playAddress.indexOf(address)+1}"></span></span>
+
+				<!--如果视频集数据小于等于10:没有收起、展开功能-->
+				<div style="margin-top: 6px;margin-bottom: 10px">
+					<a class="video-button"  th:each="item,itemStat:${address}" th:if="${address.size() lt 20}"   >
+						<span class="play_video" th:data-video_id="${video.id}" th:data-source_index="${video.playAddress.indexOf(address)}"  th:data-url_index="${address.indexOf(item)}" th:text="${item.name}"></span>
+					</a>
+				</div>
+
+
+				<!--如果视频集数据大于10:没有收起、展开功能-->
+				<div style="margin-top: 6px;margin-bottom: 10px" th:if="${address.size() gt 20}" >
+					<div th:class="'play-address-show'+${video.playAddress.indexOf(address)}">
+						<a class="video-button"  th:each="item,itemStat:${address}" th:if="${itemStat.count<20 and item.url!=null and item.url!=''}">
+							<span class="play_video" th:data-video_id="${video.id}"  th:data-source_index="${video.playAddress.indexOf(address)}" th:data-url_index="${address.indexOf(item)}" th:text="${item.name}"></span>
+						</a>
+						<a class="show-button video-button-show" th:data-source_index="${video.playAddress.indexOf(address)}"><span style="color: #df0e62" >更多</span></a>
+					</div>
+
+					<div  th:class="'play-address-hide'+${video.playAddress.indexOf(address)}" style="display: none;">
+						<a  class="video-button"  th:each="item,itemStat:${address}" th:if="${item.url!=null and item.url!=''}">
+							<span class="play_video" th:data-video_id="${video.id}"  th:data-source_index="${video.playAddress.indexOf(address)}" th:data-url_index="${address.indexOf(item)}" th:text="${item.name}"></span>
+						</a>
+						<a class="show-button video-button-hide" th:data-source_index="${video.playAddress.indexOf(address)}" ><span style="color: #df0e62" >收起</span></a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	</div>
+
+	<!--下载地址-->
+	<div class="download-address">
+		<section class="w3l-grids video-address" th:each="downloadAddress:${video.downloadAddress}" >
+			<div class="grids-main py-4">
+				<div class="container py-lg-4">
+					<div class="w3l-breadcrumbs "  style="margin-top: -60px">
+						<nav id="breadcrumbs" class="breadcrumbs">
+							<div class="container page-wrapper">
+								<span style="color: #df0e62;font-size: 16px;color: #008CBA;font-weight: bold" class="download-source">下载源<span th:text="${video.downloadAddress.indexOf(downloadAddress)+1}"></span></span>
+							</div>
+						</nav>
+					</div>
+					<!--如果视频集数据小于等于10:没有收起、展开功能-->
+					<div style="margin-top: 6px;margin-bottom: 10px;margin-left: 10px">
+						<a th:if="${downloadAddress.size() lt 6}"   >
+							<div  style="min-width: 100%;" th:each="item,itemStat:${downloadAddress}" th:if="${item.url!=null and item.url!=''}">
+								<span th:text="${item.name}"></span>
+								<a th:href="@{${item.url}}" class="dowload-button" style="color: #007DDB" > 下载</a>
+							</div>
+						</a>
+					</div>
+					<!--如果视频集数据大于10:没有收起、展开功能-->
+					<div style="margin-top: 6px;margin-bottom: 10px;margin-left: 10px" th:if="${downloadAddress.size() gt 6}" >
+						<div th:class="'play-address-show'+${video.playAddress.indexOf(downloadAddress)}">
+							<div  style="min-width: 100%;" th:each="item,itemStat:${downloadAddress}" th:if="${itemStat.count<6 and item.url!=null and item.url!=''}">
+								<span  class="download-name-class" th:text="${item.name}"></span>
+								<a th:href="@{${item.url}}" class="dowload-button" style="color: #007DDB" > 下载</a>
+							</div>
+							<a class=" video-button-show" th:data-source_index="${video.playAddress.indexOf(downloadAddress)}"><span style="color:#df0e62" >更多</span></a>
+						</div>
+
+						<div th:class="'play-address-hide'+${video.playAddress.indexOf(downloadAddress)}" style="display: none">
+							<div  style="min-width: 100%;" th:each="item,itemStat:${downloadAddress}" th:if="${item.url!=null and item.url!=''}">
+								<td style=" " th:text="${item.name}"></td>
+								<a th:href="@{${item.url}}" class="dowload-button" style="color: #007DDB" > 下载</a>
+							</div>
+							<a class="video-button-show video-button-hide" th:data-source_index="${video.playAddress.indexOf(downloadAddress)}" ><span style="color: #df0e62" >收起</span></a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+	</div>
+	<!--网格-sec2:猜你喜欢-->
+	<section class="w3l-grids" style="margin-top: -50px">
+		<div class="grids-main py-5">
+			<div class="container py-lg-3">
+				<div class="headerhny-title">
+					<div class="w3l-title-grids">
+						<div class="headerhny-left">
+							<h3 class="hny-title" style="font-size: 18px">猜你喜欢</h3>
+						</div>
+						<div class="headerhny-right text-lg-right">
+							<h4><a class="show-title" href="bk/genre.html"></a></h4>
+						</div>
+					</div>
+				</div>
+				<div class="owl-three owl-carousel owl-theme">
+
+					<div class="item vhny-grid" th:each="video:${videos}" style="text-align: center">
+						<div class="box16 mb-0">
+							<a th:href="@{/detail(category=${video.category},id=${video.id})}">
+								<figure>
+									<img class="img-fluid guessLike" th:src="${video.thumbnail}" alt="">
+								</figure>
+								<div class="box-content">
+									<h2 class="title"><span style="font-weight: bold" th:text="${video.title}"></span></h2>
+									<h3 class="title"><span th:text="${video.status}"></span></h3>
+									<h4> <span class="post"><span class="fa fa-clock-o"> </span>
+											<span th:text="${#dates.format(video.updateTime,'yyyy-MM-dd')}"></span>
+										</span>
+
+										<span class="post fa fa-heart text-right"></span>
+									</h4>
+								</div>
+								<span class="fa fa-play video-icon" aria-hidden="true"></span>
+							</a>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+
+	<div th:replace="common/bottom::#web_bottom"></div>
+
+</body>
+
+
+<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<!--/theme-change-->
+<script th:src="@{/js/theme-change.js}"></script>
+<!-- //theme-change-->
+<script th:src="@{/js/owl.carousel.js}"></script>
+<script>
+	$(document).ready(function () {
+		$('.owl-four').owlCarousel({
+			loop: true,
+			margin: 20,
+			nav: false,
+			responsiveClass: true,
+			autoplay: false,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 2,
+					nav: true
+				},
+				667: {
+					items: 2,
+					nav: true
+				},
+				1000: {
+					items: 2,
+					nav: true
+				}
+			}
+		})
+	})
+</script>
+<script>
+	$(document).ready(function () {
+		$('.owl-two').owlCarousel({
+			loop: true,
+			margin: 40,
+			nav: false,
+			responsiveClass: true,
+			autoplay: true,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 2,
+					nav: true
+				},
+				667: {
+					items: 2,
+					margin: 20,
+					nav: true
+				},
+				1000: {
+					items: 3,
+					nav: true
+				}
+			}
+		})
+	})
+</script>
+<!-- //script -->
+<!-- //script -->
+<!-- script for owlcarousel -->
+<!-- disable body scroll which navbar is in active -->
+<script>
+	$(function () {
+		$('.navbar-toggler').click(function () {
+			$('body').toggleClass('noscroll');
+		})
+	});
+</script>
+<!-- disable body scroll which navbar is in active -->
+
+<!--/MENU-JS-->
+<script>
+	$(window).on("scroll", function () {
+		var scroll = $(window).scrollTop();
+
+		if (scroll >= 80) {
+			$("#site-header").addClass("nav-fixed");
+		} else {
+			$("#site-header").removeClass("nav-fixed");
+		}
+	});
+
+	//Main navigation Active Class Add Remove
+	$(".navbar-toggler").on("click", function () {
+		$("header").toggleClass("active");
+	});
+	$(document).on("ready", function () {
+		if ($(window).width() > 991) {
+			$("header").removeClass("active");
+		}
+		$(window).on("resize", function () {
+			if ($(window).width() > 991) {
+				$("header").removeClass("active");
+			}
+		});
+	});
+</script>
+<!--//MENU-JS-->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+<!-- //猜你喜欢 -->
+<script>
+	$(document).ready(function () {
+		$('.owl-three').owlCarousel({
+			loop: true,
+			margin: 20,
+			nav: false,
+			responsiveClass: true,
+			autoplay: true,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 2,
+					nav: false
+				},
+				480: {
+					items: 2,
+					nav: true
+				},
+				667: {
+					items: 3,
+					nav: true
+				},
+				1000: {
+					items: 5,
+					nav: true
+				}
+			}
+		})
+	})
+</script>
+
+<!-- 自定义js -->
+<script>
+	$(function () {
+		//适配手机与电脑的样式
+		var window_height=$(window).height()
+		var window_width=$(window).width()
+		if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Backerry|WebOS|Symbian|Windows Phone|Phone)/i))) {
+			$('.guessLike').css('height',window_height/2.5+'px')
+			$('.thumbnail').css('width',window_width/3+'px')
+			$('.download-group').css('margin-top','-70px')
+			$('.video-address').css('margin-top','-50px')
+
+		}else {
+			$('.guessLike').css('height','330px')
+			$('.thumbnail').css('width', window_width / 5 + 'px')
+			$('.address-group').css('margin-top', '-120px')
+			$('.video-address').css('margin-top', '-100px')
+			$('.download-address').css('margin-left', '-30px')
+			$('.download-source').css('margin-left', '-30px')
+		}
+
+		//控制info的展开与收起
+		$("#info-span-show").click(function () {
+			$("#info-span-show").hide()
+			$("#info-span-hide").show()
+		})
+		$("#info-span-hide").click(function () {
+			$("#info-span-show").show()
+			$("#info-span-hide").hide()
+		})
+
+		//控制播放源的更多、收起
+		$(".video-button-show").click(function () {
+			var source_index = $(this).data('source_index');
+			var play_address_show=".play-address-show"+source_index
+			var play_address_hide=".play-address-hide"+source_index
+
+			$(play_address_show).hide()
+			$(play_address_hide).show()
+		})
+		$(".video-button-hide").click(function () {
+			var source_index = $(this).data('source_index');
+			var play_address_show=".play-address-show"+source_index
+			var play_address_hide=".play-address-hide"+source_index
+
+			$(play_address_show).show()
+			$(play_address_hide).hide()
+		})
+
+		$(".play_video").click(function () {
+			var video_id = $(this).data('video_id');
+			var source_index = $(this).data('source_index');
+			var url_index = $(this).data('url_index');
+
+			window.location.href='/play?category='+[[${videoVo.category}]]+'&id='+video_id+'&sourceIndex='+source_index+"&urlIndex="+url_index;
+		})
+
+
+	});
+
+	$(function () {
+
+		$('#search-btn').click(function () {
+			var search_content=$('#search-content').val();
+			if(search_content!=null&&search_content!=''&&search_content!=NaN){
+				window.location.href='/search?content='+search_content;
+			}
+		})
+	});
+
+</script>
+
+
+
+</html>

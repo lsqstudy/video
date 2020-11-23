@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>公告管理</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" th:href="@{/resources/layui/css/layui.css}" media="all" />
+	<link rel="stylesheet" th:href="@{/resources/css/public.css}" media="all" />
+	<link rel="stylesheet" th:href="@{/resources/layui_ext/dtree/dtree.css}">
+	<link rel="stylesheet" th:href="@{/resources/layui_ext/dtree/font/dtreefont.css}">
+</head>
+<body class="childrenBody">
+<!-- 搜索条件开始 -->
+	<blockquote class="layui-elem-quote quoteBox">
+		<form class="layui-form" method="post" id="searchFrm">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">标题:</label>
+					<div class="layui-input-inline">
+						<input type="text" name="title"  autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">别名:</label>
+					<div class="layui-input-inline">
+						<input type="text" name="alex"  autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">类型:</label>
+					<div class="layui-input-inline">
+						<input type="text" name="type"  autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">IsBanner:</label>
+					<div class="layui-input-inline">
+						<input type="radio" name="isBanner" value="1" title="是">
+						<input type="radio" name="isBanner" value="0" title="否">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<button type="button" class="layui-btn layui-btn-normal  layui-icon layui-icon-search" lay-submit lay-filter="formSubmit">查询</button>
+					<button type="reset" class="layui-btn layui-btn-warm  layui-icon layui-icon-refresh">重置</button>
+				</div>
+			</div>
+		</form>
+	</blockquote>
+	<!-- 搜索条件结束 -->
+
+	<!-- 数据表格开始 -->
+	<table class="layui-hide" id="tvPlayTable" lay-filter="tvPlayTable"></table>
+	<div style="display: none;" id="tvPlayToolBar">
+<!--		<button type="button" class="layui-btn layui-btn-sm" lay-event="add">增加</button>-->
+		<button type="button" class="layui-btn layui-btn-danger layui-btn-sm" lay-event="deleteBatch">批量删除</button>
+	</div>
+	<div  id="tvPlayBar" style="display: none;">
+		<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		<a class="layui-btn layui-btn-primary layui-btn-xs"  lay-event="viewImage">预览图片</a>
+	</div>
+	<!-- 数据表格结束 -->
+
+	<!-- 添加和修改的弹出层开始 -->
+	<div style="display: none;padding: 20px" id="saveOrUpdateDiv" >
+		<form class="layui-form layui-row layui-col-space10"  lay-filter="dataFrm" id="dataFrm">
+			<div class="layui-col-md12 layui-col-xs12">
+				<div class="layui-row layui-col-space10">
+					<div class="layui-col-md10 layui-col-xs7">
+						<div class="layui-form-item magt3">
+							<label class="layui-form-label">名称:</label>
+							<div class="layui-input-block">
+								<input type="hidden" name="id">
+								<input type="text" name="title" class="layui-input" lay-verify="required" placeholder="请输入名称">
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">别名:</label>
+							<div class="layui-input-block">
+								<input type="text" name="alex"  class="layui-input" placeholder="请输入真实姓名">
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">类型:</label>
+								<div class="layui-input-block">
+									<input type="text" name="type" class="layui-input"   placeholder="请输入类型">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">年份:</label>
+								<div class="layui-input-block">
+									<input type="text" name="year"  class="layui-input" placeholder="请输入真实姓名">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-col-md2 ">
+						<div class="layui-upload-list thumbBox mag0 magt3" id="uploadFile">
+							<!-- 显示上传的图片 -->
+							<img class="layui-upload-img thumbImg" id="showThumbnail" >
+						</div>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">简介:</label>
+					<div class="layui-input-block">
+						<textarea type="text" name="info" class="layui-textarea" placeholder="请输入简介">
+						</textarea>
+					</div>
+				</div>
+
+				<div class="layui-form-item magb0">
+					<label class="layui-form-label">IsBanner:</label>
+					<div class="layui-input-block">
+						<input type="radio" name="isBanner" value="1" checked="checked" title="是">
+						<input type="radio" name="isBanner" value="0" title="否">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">Banner地址:</label>
+					<div class="layui-input-block">
+						<input type="text" name="poster" class="layui-input" placeholder="请输入Banner的海报">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">Banner描述:</label>
+					<div class="layui-input-block">
+						<textarea type="text" name="describe" class="layui-textarea" placeholder="请输入Banner描述">
+						</textarea>
+					</div>
+				</div>
+
+				<div class="layui-form-item magb0" style="text-align: center;">
+					<div class="layui-input-block">
+						<button type="button" class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release" lay-filter="doSubmit" lay-submit="">提交</button>
+						<button type="reset"  class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh" >重置</button>
+					</div>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<!-- 添加和修改的弹出层结束 -->
+
+
+<!-- 查看大图弹出的层 开始 -->
+<div id="viewThumbnailDiv" style="display: none;text-align: center;">
+	<img alt="查看缩略图" width="220" height="290" id="show_thumbnail">
+</div>
+<!-- 查看大图弹出的层 结束 -->
+	<script th:src="@{/resources/layui/layui.js}"></script>
+	<script type="text/javascript">
+		var tableIns;
+		layui.use([ 'jquery', 'layer', 'form', 'table','laydate','layedit' ], function() {
+			var $ = layui.jquery;
+			var layer = layui.layer;
+			var form = layui.form;
+			var table = layui.table;
+			var laydate=layui.laydate;
+			var layedit=layui.layedit;
+
+			//渲染时间
+			laydate.render({
+				elem:'#startTime',
+				type:'datetime',
+				trigger: 'click',
+				max : 0
+			});
+			laydate.render({
+				elem:'#endTime',
+				type:'datetime',
+				trigger: 'click',
+				max : 0
+			});
+			//初始化富文本编辑器
+			var editIndex;
+			function initedit(){
+				editIndex=layedit.build(
+						'content',
+						{tool: ['strong' //加粗
+								,'italic' //斜体
+								,'underline' //下划线
+								,'del' //删除线
+								,'|' //分割线
+								,'left' //左对齐
+								,'center' //居中对齐
+								,'right' //右对齐
+								,'link' //超链接
+								,'unlink' //清除链接
+								,'face' //表情
+							]}
+				); //建立编辑器
+			}
+
+			//渲染数据表格
+			tableIns=table.render({
+				elem: '#tvPlayTable'   //渲染的目标对象
+				,url:'/bussiness/tvPlay/loadAllTVPlay.html' //数据接口
+				,method:'post'
+				,title: '管理员数据表'//数据导出来的标题
+				,toolbar:"#tvPlayToolBar"   //表格的工具条
+				,height:'full-170'
+				,cellMinWidth:100 //设置列的最小默认宽度
+				,page: true  //是否启用分页
+				,cols: [ [   //列表数据
+					{type: 'checkbox', fixed: 'left'}
+					,{field:'title', title:'标题',minWidth:220,align:'center'}
+					,{field:'alex', title:'别名',minWidth:220,align:'center'}
+					,{field:'type', title:'类型',minWidth:200,align:'center'}
+					,{field:'year', title:'年份',minWidth:100,align:'center'}
+					,{field:'status', title:'状态',align:'center',width:100,sort:true}
+
+					,{field:'updateTime', title:'更新时间',minWidth:200,align:'center'}
+					,{field:'id', title:'ID',align:'center',minWidth:220,sort:true}
+					,{field:'isBanner', title:'IsBanner',width:'100',align:'center', templet:function(d){
+							var isBanner='';
+							if(d.isBanner==1){
+								isBanner='checked';
+								return '<input type="checkbox" value='+d.id+' lay-filter="is_banner" lay-skin="switch" lay-text="是|否" '+isBanner+'>'
+							}else if (d.poster!==undefined) {
+								return '<input type="checkbox" value=' + d.id + ' lay-filter="is_banner" lay-skin="switch" lay-text="是|否" ' + isBanner + '>'
+							}
+							return "";
+						} }
+					,{fixed: 'right', title:'操作', toolbar: '#tvPlayBar', minWidth:200,align:'center'}
+				] ],
+				done:function(data,curr,count){
+					//不是第一页时如果当前返回的的数据为0那么就返回上一页
+					if(data.data.length==0&&curr!=1){
+						tableIns.reload({
+							page:{
+								curr:curr-1
+							}
+						});
+					}
+				}
+			})
+
+
+			//是否可用
+			form.on('switch(is_banner)', function(data){
+				var isBanner=0;
+				var msg="取消banner成功！";
+				var index = layer.msg('修改中，请稍候',{icon: 16,time:false,shade:0.3});
+
+				setTimeout(function(){
+					if(data.elem.checked){
+						isBanner=1;
+						msg='设置banner成功';
+					}
+					//去更新
+					$.post("/bussiness/tvPlay/updateTVPlay.html",{id:data.value,isBanner:isBanner},function(res){
+						layer.close(index);
+						layer.msg(msg);
+						//刷新数据 表格
+						tableIns.reload();
+					})
+				},500);
+
+			})
+
+			//模糊查询
+			form.on('submit(formSubmit)', function(data){
+				if (undefined==data.field.isBanner){
+					data.field.isBanner=null;
+				}
+				tableIns.reload({
+					url:"/bussiness/tvPlay/loadAllTVPlay.html?",
+					where:data.field,
+					page:{curr:1}
+				})
+			});
+
+			//监听头部工具栏事件
+			table.on("toolbar(tvPlayTable)",function(obj){
+				switch(obj.event){
+					case 'add':
+						openAddTVPlay();
+						break;
+					case 'deleteBatch':
+						deleteBatch();
+						break;
+				};
+			})
+			//监听行工具事件
+			table.on('tool(tvPlayTable)', function(obj){
+				var data = obj.data; //获得当前行数据
+				var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+				if(layEvent === 'del'){ //删除
+					layer.confirm('真的删除【'+data.title+'】这个公告吗', function(index){
+						//向服务端发送删除指令
+						$.post("/bussiness/tvPlay/deleteTVPlay.html",{id:data.id},function(res){
+							res=$.parseJSON( res )
+							layer.msg(res.msg);
+							//刷新数据 表格
+							tableIns.reload();
+						})
+					});
+				} else if(layEvent === 'edit'){ //编辑
+					openUpdateTVPlay(data);
+				}else if(layEvent==='viewImage'){
+					viewThumbnailDiv(data);
+					}
+				});
+
+			var url;
+			var mainIndex;
+			//打开添加页面
+			function openAddTVPlay(){
+				mainIndex=layer.open({
+					type:1,
+					title:'添加公告',
+					content:$("#saveOrUpdateDiv"),
+					area:['800px','400px'],
+					maxmin: true,  //窗口放大放小
+					btnAlign: 'c', //按钮居中
+					success:function(index){
+						initedit() //建立编辑器
+						//清空表单数据
+						$("#dataFrm")[0].reset();
+						url="/bussiness/tvPlay/addTVPlay.html";
+					}
+				});
+			}
+
+			//打开修改页面
+			function openUpdateTVPlay(data){
+				form.val("dataFrm",data);
+				mainIndex=layer.open({
+					type:1,
+					title:'修改公告',
+					content:$("#saveOrUpdateDiv"),
+					area:['800px','400px'],
+					maxmin: true,  //窗口放大放小
+					btnAlign: 'c', //按钮居中
+					success:function(index){
+						$("#showThumbnail").attr("src",data.thumbnail);
+
+
+
+						url="/bussiness/tvPlay/updateTVPlay.html";
+					}
+				});
+			}
+
+			//保存
+			form.on("submit(doSubmit)",function(obj){
+				layedit.sync(editIndex);//把富文本里面的数据同步到自己写的textarea里面
+				//序列化表单数据
+				var params=$("#dataFrm").serialize();
+				$.post(url,params,function(obj){
+					obj=$.parseJSON( obj )
+					layer.msg(obj.msg);
+					//关闭弹出层
+					layer.close(mainIndex)
+					layedit.setContent(editIndex,"");
+
+					//刷新数据 表格
+					tableIns.reload();
+				})
+			});
+
+			//重置时清空
+			$("#dataFrmResetBtn").click(function(){
+				layedit.setContent(editIndex,"");
+			});
+
+			//查看
+			function viewTVPlay(data){
+				$("#view_title").html(data.title);
+				$("#view_publisher").html(data.publisher);
+				$("#view_createTime").html(data.createTime);
+				$("#view_content").html(data.content);
+				mainIndex=layer.open({
+					type:1,
+					title:'查看公告',
+					content:$("#viewTVPlayDiv"),
+					area:['600px','400px'],
+					maxmin: true,  //窗口放大放小
+					btnAlign: 'c', //按钮居中
+					success:function(index){
+					}
+				});
+			}
+
+			//批量删除
+			function deleteBatch(){
+				//得到选中的数据行
+				var checkStatus = table.checkStatus('tvPlayTable');
+				var data = checkStatus.data;
+				var params="";
+				$.each(data,function(i,item){
+					if(i==0){
+						params+="ids="+item.id;
+					}else{
+						params+="&ids="+item.id;
+					}
+				});
+				layer.confirm('真的删除选中的这些公告吗', function(index){
+					//向服务端发送删除指令
+					$.post("/bussiness/tvPlay/deleteBatchTVPlay.html",params,function(res){
+						res=$.parseJSON( res )
+						layer.msg(res.msg);
+						//刷新数据 表格
+						tableIns.reload();
+					})
+				});
+			}
+
+			//查看大图
+			function viewThumbnailDiv(data){
+
+				mainIndex=layer.open({
+					type:1,
+					title:"【"+data.title+'】',
+					content:$("#viewThumbnailDiv"),
+					area:['240px','340px'],
+					success:function(index){
+						$("#show_thumbnail").attr("src",data.thumbnail);
+					}
+				});
+			}
+
+
+		});
+	</script>
+</body>
+</html>

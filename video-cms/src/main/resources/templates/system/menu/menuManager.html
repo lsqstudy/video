@@ -1,0 +1,14 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>菜单管理</title>
+</head>
+<!-- 如果使用frameset 的包含页面  主页面不能有 body-->
+<frameset cols="250,*" border="1">
+	<frame th:src="@{/system/toMenuLeft.html}" name="left">
+	<frame th:src="@{/system/toMenuRight.html}" name="right">
+</frameset>
+
+</html>

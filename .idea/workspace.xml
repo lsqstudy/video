@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bec29b64-25e0-4711-919c-e7ee82b1c731" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/constast/BusConstast.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/controller/BusController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/controller/CartoonController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/controller/MoviceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/controller/TVPlayController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/controller/VarietyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/dao/ICartoonDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/dao/IMoviceDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/dao/ITVPlayDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/dao/IVarietyDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/domain/Cartoon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/domain/DownloadAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/domain/Movice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/domain/PlayAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/domain/TVPlay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/domain/Variety.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/service/ICartoonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/service/IMoviceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/service/ITVPlayService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/service/IVarietyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/service/impl/CartoonServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/service/impl/MoviceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/service/impl/TVPlayServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/service/impl/VarietyServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/vo/CartoonVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/vo/MoviceVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/vo/TVPlayVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/bussiness/vo/VarietyVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/common/config/MongoDbConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/statistic/controller/StatController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/statistic/service/IStatService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/statistic/service/impl/StatServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/statistic/util/ExprotHSSFCellStyle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/statistic/util/ExprotUserUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/statistic/util/ZXingCodeEncodeUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/resources/templates/bussiness/cartoon/cartoonManager.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/resources/templates/bussiness/movice/moviceManager.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/resources/templates/bussiness/tvPlay/tvPlayManager.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-cms/src/main/resources/templates/bussiness/variety/varietyManager.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/config/MongoDbConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/vo/VideoVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/VideoCmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/VideoCmsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/dao/IAdministratorLoginLogDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/dao/IAdministratorLoginLogDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/service/INewsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/service/INewsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/service/impl/AdministratorLoginLogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/service/impl/AdministratorLoginLogServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/service/impl/AdministratorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/service/impl/AdministratorServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/service/impl/NewsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/service/impl/NewsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/service/impl/PermissionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/java/com/lsqstudy/system/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/static/resources/js/page/doc/addressDoc.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/resources/static/resources/js/page/doc/addressDoc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/static/resources/js/page/doc/bodyTabDoc.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/resources/static/resources/js/page/doc/bodyTabDoc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/static/resources/js/page/doc/navDoc.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/resources/static/resources/js/page/doc/navDoc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/static/resources/page/doc/addressDoc.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/resources/static/resources/page/doc/addressDoc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/static/resources/page/doc/bodyTabDoc.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/resources/static/resources/page/doc/bodyTabDoc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/static/resources/page/doc/navDoc.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/resources/static/resources/page/doc/navDoc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/templates/bussiness/user/userManager.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/templates/stat/onlineInfoStat.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/resources/templates/stat/onlineInfoStat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/templates/system/administrator/administratorInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/resources/templates/system/administrator/administratorInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/templates/system/administrator/administratorManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/resources/templates/system/administrator/administratorManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/templates/system/menu/menuRight.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/resources/templates/system/menu/menuRight.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/templates/system/permission/permissionManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/resources/templates/system/permission/permissionManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/main/resources/templates/system/role/roleManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/main/resources/templates/system/role/roleManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-cms/src/test/java/com/lsqstudy/VideoCmsApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-cms/src/test/java/com/lsqstudy/VideoCmsApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/common/Constast.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/common/Constast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/common/config/WebMvcConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/controller/VideoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/dao/CartoonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/dao/ICartoonDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/dao/MoviceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/dao/IMoviceDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/dao/TVPlayDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/dao/ITVPlayDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/dao/VarietyDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/dao/IVarietyDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/ICartoonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/ICartoonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/IMoviceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/IMoviceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/ITVPlayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/ITVPlayService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/IVarietyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/IVarietyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/impl/CartoonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/impl/CartoonServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/impl/MoviceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/impl/MoviceServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/impl/TVPlayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/impl/TVPlayServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/impl/VarietyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/service/impl/VarietyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/templates/about-bak.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/templates/bk/about-bak.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/templates/bk/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/templates/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/templates/common/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/templates/common/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/templates/contact-bak.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/templates/bk/contact-bak.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/templates/bk/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/templates/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/templates/genre-bak.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/templates/bk/genre-bak.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/templates/genre.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/templates/bk/genre.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/templates/index-bak.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/templates/bk/index-bak.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/templates/play.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/templates/play.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/main/resources/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/main/resources/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-portal/src/test/java/com/lsqstudy/dao/VideoPortalApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/video-portal/src/test/java/com/lsqstudy/dao/VideoPortalApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="E:/Maven/apache-maven-3.3.9" />
+        <option name="userSettingsFile" value="E:\Maven\apache-maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectId" id="1jMYsItEKzwNTjC5aHjwvEKoBRc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/vo" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IDEA\video\video-portal\src\main\resources\templates\bk" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.lsqstudy" />
+      <recent name="com.lsqstudy.portal" />
+      <recent name="com.lsqstudy.dao" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IDEA\video\video-portal\src\main\java\com\lsqstudy\vo" />
+      <recent name="D:\IDEA\video\video-cms\src\main\resources\templates\bussiness\variety" />
+      <recent name="D:\IDEA\video\video-cms\src\main\resources\templates\bussiness\tvPlay" />
+      <recent name="D:\IDEA\video\video-cms\src\main\resources\templates\bussiness\movice" />
+      <recent name="D:\IDEA\video\video-cms\src\main\resources\templates\bussiness\cartoon" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lsqstudy.config" />
+      <recent name="com.lsqstudy.vo" />
+      <recent name="com.lsqstudy.bussiness.controller" />
+      <recent name="com.lsqstudy.bussiness.vo" />
+      <recent name="com.lsqstudy.bussiness.constast" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.lsqstudy.system.vo" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.VideoCmsApplication">
+    <configuration name="VideoCmsApplicationTests.findBySortAndPageAndLike (5)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="video-cms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lsqstudy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lsqstudy" />
+      <option name="MAIN_CLASS_NAME" value="com.lsqstudy.VideoCmsApplicationTests" />
+      <option name="METHOD_NAME" value="findBySortAndPageAndLike" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VideoCmsApplicationTests.save" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="video-cms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lsqstudy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lsqstudy" />
+      <option name="MAIN_CLASS_NAME" value="com.lsqstudy.VideoCmsApplicationTests" />
+      <option name="METHOD_NAME" value="save" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VideoCmsApplicationTests.testStat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="video-cms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lsqstudy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lsqstudy" />
+      <option name="MAIN_CLASS_NAME" value="com.lsqstudy.VideoCmsApplicationTests" />
+      <option name="METHOD_NAME" value="testStat" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VideoPortalApplicationTests.testFindAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="video-portal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lsqstudy.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lsqstudy.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.lsqstudy.dao.VideoPortalApplicationTests" />
+      <option name="METHOD_NAME" value="testFindAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VideoPortalApplicationTests.testfindMath" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="video-portal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lsqstudy.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lsqstudy.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.lsqstudy.dao.VideoPortalApplicationTests" />
+      <option name="METHOD_NAME" value="testfindMath" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VideoPortalApplicationTests.testfindMath2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="video-portal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lsqstudy.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lsqstudy.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.lsqstudy.dao.VideoPortalApplicationTests" />
+      <option name="METHOD_NAME" value="testfindMath2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VideoAdminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="video-admin" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lsqstudy.VideoAdminApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VideoCmsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="video-cms" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lsqstudy.VideoCmsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VideoPortalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="video-portal" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lsqstudy.VideoPortalApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.VideoPortalApplicationTests.testfindMath2" />
+        <item itemvalue="JUnit.VideoPortalApplicationTests.testfindMath" />
+        <item itemvalue="JUnit.VideoPortalApplicationTests.testFindAll" />
+        <item itemvalue="JUnit.VideoCmsApplicationTests.testStat" />
+        <item itemvalue="JUnit.VideoCmsApplicationTests.findBySortAndPageAndLike (5)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpringConfigurationTabSettings">
+    <option name="sortAlpha" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bec29b64-25e0-4711-919c-e7ee82b1c731" name="Default Changelist" comment="" />
+      <created>1603615632885</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603615632885</updated>
+      <workItem from="1603615637730" duration="1680000" />
+      <workItem from="1603633084509" duration="7438000" />
+      <workItem from="1603681002558" duration="12774000" />
+      <workItem from="1603724618854" duration="904000" />
+      <workItem from="1603725655002" duration="208000" />
+      <workItem from="1603725890139" duration="2181000" />
+      <workItem from="1603944840734" duration="28221000" />
+      <workItem from="1603977446078" duration="12456000" />
+      <workItem from="1603992800414" duration="200000" />
+      <workItem from="1604125309459" duration="20177000" />
+      <workItem from="1604146823484" duration="11894000" />
+      <workItem from="1604159441565" duration="5220000" />
+      <workItem from="1604207172180" duration="11436000" />
+      <workItem from="1604218994370" duration="9587000" />
+      <workItem from="1604302885805" duration="17789000" />
+      <workItem from="1604393356535" duration="7013000" />
+      <workItem from="1604410014987" duration="12955000" />
+      <workItem from="1604470305314" duration="174000" />
+      <workItem from="1604580050614" duration="1657000" />
+      <workItem from="1604583948900" duration="7695000" />
+      <workItem from="1604644733660" duration="3852000" />
+      <workItem from="1604663320585" duration="3294000" />
+      <workItem from="1604670403029" duration="8734000" />
+      <workItem from="1604680825713" duration="6080000" />
+      <workItem from="1604725777787" duration="24560000" />
+      <workItem from="1604755420679" duration="12184000" />
+      <workItem from="1604769672819" duration="2183000" />
+      <workItem from="1604812003779" duration="17576000" />
+      <workItem from="1604894200987" duration="4345000" />
+      <workItem from="1604901798812" duration="370000" />
+      <workItem from="1604902176482" duration="4998000" />
+      <workItem from="1604917279419" duration="20942000" />
+      <workItem from="1604978302971" duration="3647000" />
+      <workItem from="1604999150938" duration="18361000" />
+      <workItem from="1605070218012" duration="1810000" />
+      <workItem from="1605171555939" duration="6644000" />
+      <workItem from="1605264365995" duration="15593000" />
+      <workItem from="1605319049302" duration="14497000" />
+      <workItem from="1605415309799" duration="10052000" />
+      <workItem from="1605430423886" duration="6460000" />
+      <workItem from="1605444059131" duration="13366000" />
+      <workItem from="1605515807083" duration="15045000" />
+      <workItem from="1605591539506" duration="33368000" />
+      <workItem from="1605666249251" duration="6741000" />
+      <workItem from="1605677562932" duration="23878000" />
+      <workItem from="1605709351109" duration="5091000" />
+      <workItem from="1605756294450" duration="4939000" />
+      <workItem from="1605761576822" duration="18377000" />
+      <workItem from="1605859918409" duration="18988000" />
+      <workItem from="1605933537685" duration="32087000" />
+      <workItem from="1606012809091" duration="21613000" />
+      <workItem from="1606049928590" duration="18419000" />
+      <workItem from="1606104746794" duration="34735000" />
+    </task>
+    <task id="LOCAL-00001" summary="update">
+      <created>1603992859254</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603992859254</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update">
+      <created>1604686819392</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604686819392</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update">
+      <created>1604982427682</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604982427682</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update">
+      <created>1605007358297</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605007358297</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update">
+      <created>1605803697852</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605803697853</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="662" y="321" key="#Assign_Data_Sources" timestamp="1605023317618">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="662" y="321" key="#Assign_Data_Sources/0.0.1536.864@0.0.1536.864" timestamp="1605023317618" />
+    <state x="395" y="110" key="#Inspections" timestamp="1605968754547">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="395" y="110" key="#Inspections/0.0.1536.864@0.0.1536.864" timestamp="1605968754547" />
+    <state x="361" y="73" key="#Plugins" timestamp="1603616157570">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="73" key="#Plugins/0.0.1536.864@0.0.1536.864" timestamp="1603616157570" />
+    <state x="249" y="6" key="#Project_Structure" timestamp="1605448327033">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="249" y="6" key="#Project_Structure/0.0.1536.864@0.0.1536.864" timestamp="1605448327033" />
+    <state x="223" y="87" width="1164" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604917404426">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="223" y="87" width="1164" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1604917404426" />
+    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1606131684194">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1606131684194" />
+    <state x="426" y="344" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1606056585027">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="426" y="344" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.864@0.0.1536.864" timestamp="1606056585027" />
+    <state x="544" y="299" width="448" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1604327370926">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="544" y="299" width="448" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1604327370926" />
+    <state x="548" y="312" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1606056603687">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="548" y="312" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1536.864@0.0.1536.864" timestamp="1606056603687" />
+    <state x="113" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606055929723">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="113" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1606055929723" />
+    <state x="499" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605430204110">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="499" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1605430204110" />
+    <state x="499" y="178" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1604131264479">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="499" y="178" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.864@0.0.1536.864" timestamp="1604131264479" />
+    <state x="290" y="4" key="CommitChangelistDialog2" timestamp="1605803688477">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="290" y="4" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1605803688477" />
+    <state x="549" y="185" key="FileChooserDialogImpl" timestamp="1605771885571">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="515" y="184" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1604902127517" />
+    <state x="549" y="185" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1605771885571" />
+    <state width="1492" height="227" key="GridCell.Tab.0.bottom" timestamp="1606151089435">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1396" height="22" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1604907204231" />
+    <state width="1492" height="227" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1606151089435" />
+    <state width="1492" height="227" key="GridCell.Tab.0.center" timestamp="1606151089435">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1396" height="22" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1604907204231" />
+    <state width="1492" height="227" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1606151089435" />
+    <state width="1492" height="227" key="GridCell.Tab.0.left" timestamp="1606151089435">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1396" height="22" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1604907204230" />
+    <state width="1492" height="227" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1606151089435" />
+    <state width="1492" height="227" key="GridCell.Tab.0.right" timestamp="1606151089435">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1396" height="22" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1604907204231" />
+    <state width="1492" height="227" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1606151089435" />
+    <state width="1492" height="166" key="GridCell.Tab.1.bottom" timestamp="1606151072441">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1396" height="22" key="GridCell.Tab.1.bottom/0.0.1440.860@0.0.1440.860" timestamp="1604907204231" />
+    <state width="1492" height="166" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1606151072441" />
+    <state width="1492" height="166" key="GridCell.Tab.1.center" timestamp="1606151072441">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1396" height="22" key="GridCell.Tab.1.center/0.0.1440.860@0.0.1440.860" timestamp="1604907204231" />
+    <state width="1492" height="166" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1606151072441" />
+    <state width="1492" height="166" key="GridCell.Tab.1.left" timestamp="1606151072441">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1396" height="22" key="GridCell.Tab.1.left/0.0.1440.860@0.0.1440.860" timestamp="1604907204231" />
+    <state width="1492" height="166" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1606151072441" />
+    <state width="1492" height="166" key="GridCell.Tab.1.right" timestamp="1606151072441">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1396" height="22" key="GridCell.Tab.1.right/0.0.1440.860@0.0.1440.860" timestamp="1604907204231" />
+    <state width="1492" height="166" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1606151072441" />
+    <state width="1492" height="166" key="GridCell.Tab.2.bottom" timestamp="1606151072441">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="166" key="GridCell.Tab.2.bottom/0.0.1536.864@0.0.1536.864" timestamp="1606151072441" />
+    <state width="1492" height="166" key="GridCell.Tab.2.center" timestamp="1606151072441">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="166" key="GridCell.Tab.2.center/0.0.1536.864@0.0.1536.864" timestamp="1606151072441" />
+    <state width="1492" height="166" key="GridCell.Tab.2.left" timestamp="1606151072441">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="166" key="GridCell.Tab.2.left/0.0.1536.864@0.0.1536.864" timestamp="1606151072441" />
+    <state width="1492" height="166" key="GridCell.Tab.2.right" timestamp="1606151072441">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="166" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1606151072441" />
+    <state x="299" y="87" key="Maven.ArtifactSearchDialog" timestamp="1604925351422">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="299" y="87" key="Maven.ArtifactSearchDialog/0.0.1536.864@0.0.1536.864" timestamp="1604925351422" />
+    <state x="251" y="13" key="SettingsEditor" timestamp="1605070691244">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="27" y="122" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1604902462786" />
+    <state x="251" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1605070691244" />
+    <state x="501" y="128" key="SpringBootCustomization" timestamp="1605017363924">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="501" y="128" key="SpringBootCustomization/0.0.1536.864@0.0.1536.864" timestamp="1605017363924" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1604982439718">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1604982439718" />
+    <state x="563" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603726182466">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="563" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1603726182466" />
+    <state x="540" y="251" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1603684428864">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="540" y="251" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.864@0.0.1536.864" timestamp="1603684428864" />
+    <state x="93" y="93" width="1350" height="678" key="dock-window-1" timestamp="1603683992664">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="93" y="93" width="1350" height="678" key="dock-window-1/0.0.1536.864@0.0.1536.864" timestamp="1603683992664" />
+    <state x="150" y="185" key="new project wizard" timestamp="1605017478955">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="150" y="185" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1605017478955" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1606132189492">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1606132189492" />
+    <state x="430" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1606132746299">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="430" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1606132746299" />
+    <state x="423" y="114" key="spring file set editor" timestamp="1605009455255">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="423" y="114" key="spring file set editor/0.0.1536.864@0.0.1536.864" timestamp="1605009455255" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/video-portal/src/main/java/com/lsqstudy/vo/VideoVo.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo typeName="com.lsqstudy.system.vo.MenuVo" fieldName="roles" />
+        <PinnedItemInfo typeName="java.lang.Integer" fieldName="value" />
+        <PinnedItemInfo typeName="org.springframework.data.domain.PageImpl" fieldName="total" />
+        <PinnedItemInfo typeName="org.springframework.data.domain.PageImpl" fieldName="content" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="sort" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

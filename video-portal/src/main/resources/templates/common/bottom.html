@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<footer id="web_bottom" class="w3l-footer"  >
+    <section class="footer-inner-main">
+
+        <div class="below-section">
+            <div class="container">
+                <div>
+
+                    <p style="text-align: center;font-size: 12px">本站影片内容全部收集于互联网，卖剩鸭不承担任何由于内容的合法性及健康性所引起的争议和法律责任。</p>
+                    <p style="text-align: center; font-size: 12px">	欢迎大家对网站内容侵犯版权等不合法和不健康行为进行监督和举报，请给邮箱:maishenya@gmail.com来信并附上相关侵权片名、链接以及版权证明材料，我们将在核实后第一时间进行处理！</p>
+                    <p style="text-align: center ;font-size: 12px">Copyright &copy; 2020</p>
+                </div>
+            </div>
+            <!-- copyright -->
+            <!-- move top -->
+            <button  onclick="topFunction()" id="movetop" title="回到顶部">
+                <span class="fa fa-arrow-up" aria-hidden="true"></span>
+            </button>
+            <script>
+                // 当用户从文档顶部向下滚动20px时，显示该按钮
+                window.onscroll = function () {
+                    scrollFunction()
+                };
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        document.getElementById("movetop").style.display = "block";
+                    } else {
+                        document.getElementById("movetop").style.display = "none";
+                    }
+                }
+
+                // 当用户单击按钮时，滚动到顶部
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
+            <!-- /move top -->
+
+    </section>
+</footer>
+</body>
+</html>

@@ -1,0 +1,112 @@
+#项目相关配置
+server:
+  #配置端口号
+  port: 8081
+spring:
+  application:
+    name: video-cms
+
+  #MySQL相关配置
+  #配置数据源
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://lsqstudy.top:3306/video?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
+      url: jdbc:mysql://localhost:3306/video?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
+      username: root
+      password: lsqstudy
+      max-active: 20
+      max-wait: 5000
+      initial-size: 1
+      filters: stat,log4j,wall
+      validation-query: SELECT 'x' #验证连接
+      enable: true
+      #监控配置
+      stat-view-servlet:
+        enabled: true
+        login-username: lsqstudy
+        login-password: 123456
+        allow:
+        deny:
+        url-pattern: /druid/*
+
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
+  #Spring-Data-Jpa依据iHibernata相关配置
+  jpa:
+    database: mysql  #配置数据库类型
+    show-sql: true   #配置是否打印sql
+    hibernate:
+      #hIbernate级联方式:
+      #1)、validate- 加载hibernate时，验证创建数据库表结构。
+      #2)、create- 每次加载hibernate，重新创建数据库表结构，这就是导致数据库表数据丢失的原因。
+      #3)、create-drop 加载hibernate时创建，退出是删除表结构。
+      #4)、update-级联更新 加载hibernate自动更新数据库结构。
+      ddl-auto: update
+      #命名策略
+      naming:
+        #命名策略有以下两种：
+        #1)、 org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy 遇到大写字母 加”_”的命名。
+        #2)、 org.hibernate.cfg.ImprovedNamingStrategy   无修改命名 。
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    properties:
+      hibernate:
+        format_sql: true  #格式化sql语句
+
+
+
+
+    #redis相关配置
+  redis:
+#    host: server.lsqstudy.top
+    host: localhost
+    port: 6379
+    password: lsqstudy
+
+  #mongodb相关配置
+  data:
+    mongodb:
+#      uri: mongodb://localhost:27017/video #不需要验证，本地连接
+        uri: mongodb://root:lsqstudy@localhost:27017/video?authSource=admin #需要验证,本地连接
+  #      uri: mongodb://root:lsqstudy@lsqstudy.top:27017/video?authSource=admin #需要验证,远程连接
+
+
+  #配置thymeleaf
+  thymeleaf:
+    cache: false
+    enabled: true
+
+  #配置jackson
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+#日志
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm} [%thread] %-5level %logger- %msg%n"
+
+#配置shiro
+shiro:
+  hash-algorithm-name: md5
+  hash-iterations: 2
+  anon-urls:
+    - /index.html*
+    - /system/login*
+    - /system/doLogin*
+    - /system/getCode.html
+    - /resources/**
+  log-out-url: /login/logout*
+  login-url: /index.html
+  authc-ulrs:
+    - /**
+
+
+
+#linux中后台启动
+##nohup java -jar video-cms-0.0.1-SNAPSHOT.jar > ./video_cms.log 2>&1
+
+
+
+
